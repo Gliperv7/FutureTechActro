@@ -1,9 +1,14 @@
 ---
-
+const text1=Astro.props.text1
+const text2=Astro.props.text2
+const text3=Astro.props.text3
+const text4=Astro.props.text4
+const text5=Astro.props.text5
+const text6=Astro.props.text6
 ---
 <div class="tabs">
     <details class="tab" name="alpha" style="--n: 1" open="">
-        <summary class="tab-subtitle"><span class="text-summary">All</span> <span class="svg-summary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layout-grid"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path><path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path><path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path><path d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path></svg></span>
+        <summary class="tab-subtitle"><span class="text-summary">{text1}</span> <span class="svg-summary"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-layout-grid"><path stroke="none" d="M0 0h24v24H0z" fill="none"></path><path d="M4 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path><path d="M14 4m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path><path d="M4 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path><path d="M14 14m0 1a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v4a1 1 0 0 1 -1 1h-4a1 1 0 0 1 -1 -1z"></path></svg></span>
         </summary>
         <div class="tab-content">
             <div class="tab-content-block">
@@ -157,7 +162,7 @@
         </div>
     </details>
     <details class="tab" name="alpha" style="--n: 2">
-        <summary class="tab-subtitle"><span class="text-summary">Quantum Computing</span> <span class="svg-summary"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <summary class="tab-subtitle"><span class="text-summary">{text2}</span> <span class="svg-summary"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="3"></circle>
   <ellipse cx="12" cy="12" rx="9" ry="4"></ellipse>
   <ellipse cx="12" cy="12" rx="4" ry="9" transform="rotate(45 12 12)"></ellipse>
@@ -170,7 +175,7 @@
         </div>
     </details>
     <details class="tab" name="alpha" style="--n: 3">
-        <summary class="tab-subtitle"><span class="text-summary">AI Ethics</span> <span class="svg-summary"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 2 4 6 0 8c-4-2-4-6 0-8z"></path><path d="M5 14l3 6h8l3-6"></path><path d="M9 14h6"></path></svg>
+        <summary class="tab-subtitle"><span class="text-summary">{text3}</span> <span class="svg-summary"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c4 2 4 6 0 8c-4-2-4-6 0-8z"></path><path d="M5 14l3 6h8l3-6"></path><path d="M9 14h6"></path></svg>
 </span></summary>
 
         <div>
@@ -178,7 +183,7 @@
         </div>
     </details>
     <details class="tab" name="alpha" style="--n: 4">
-        <summary class="tab-subtitle"><span class="text-summary">Space Exploration</span> <span class="svg-summary"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <summary class="tab-subtitle"><span class="text-summary">{text4}</span> <span class="svg-summary"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M2 16l4 1l6-6l-1-4l4-4l4 4l-4 4l-4-1l-6 6z"></path>
   <circle cx="18" cy="18" r="3"></circle>
 </svg>
@@ -189,7 +194,7 @@
         </div>
     </details>
     <details class="tab" name="alpha" style="--n: 5">
-        <summary class="tab-subtitle"><span class="text-summary">Biotechnology</span> <span class="svg-summary"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <summary class="tab-subtitle"><span class="text-summary">{text5}</span> <span class="svg-summary"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <path d="M7 2c6 4 6 14 0 18"></path>
   <path d="M17 2c-6 4 -6 14 0 18"></path>
   <line x1="7" y1="7" x2="17" y2="7"></line>
@@ -202,7 +207,7 @@
         </div>
     </details>
     <details class="tab" name="alpha" style="--n: 6">
-        <summary class="tab-subtitle"><span class="text-summary">Renewable Energy</span> <span class="svg-summary"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <summary class="tab-subtitle"><span class="text-summary">{text6}</span> <span class="svg-summary"><svg width="24" height="24" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
   <circle cx="12" cy="12" r="3"></circle>
   <path d="M12 2v3"></path>
   <path d="M12 19v3"></path>

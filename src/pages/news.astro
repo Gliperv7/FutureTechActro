@@ -1,9 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import SectionView from "../components/SectionView.astro";
+import TabsSection from "../components/TabsSection.astro";
+import Header from "../components/Header.astro";
+import HeroSectionSmall from "../components/HeroSectionSmall.astro";
+import NewsSection from "../components/NewsSection.astro";
 
 ---
 
 <Layout title="news-page">
-    news-page
 
+    <HeroSectionSmall MainText1="Today's Headlines: Stay" MainText2="Informed" MainText3="Explore the latest news from around the world. We bring you up-to-the-minute updates on the most significant events, trends, and stories. Discover the world through our news coverage."  />
+    <NewsSection />
+    <SectionView heading="Welcome to Out News Hub" description="Discover the World Headlines" link="View All News" path="/news"/>
+    <TabsSection text1="All" text2="Technology" text3="Politics" text4="Health" text5="Environment" text6="Sports"/>
 </Layout>

@@ -1,0 +1,23 @@
+---
+const MainText1=Astro.props.MainText1;
+const MainText2=Astro.props.MainText2;
+const MainText3=Astro.props.MainText3;
+
+---
+<div class="container hero-section-small">
+    <div class="hero-section-small-box">
+        <div class="hero-section-small-box-head">
+            <p class="hero-section-small-box-text-heavy">
+                {MainText1}
+            </p>
+        </div>
+        <div class="hero-section-small-box-bottom">
+            <p class="hero-section-small-box-text-heavy">
+                {MainText2}
+            </p>
+            <p class="hero-section-small-box-text-normal">
+                {MainText3}
+            </p>
+        </div>
+    </div>
+</div>
