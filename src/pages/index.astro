@@ -1,11 +1,25 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import SectionView from "../components/SectionView.astro";
+import HeroSection from "../components/HeroSection.astro";
+import BlogSection from "../components/BlogSection.astro";
+import TabsSection from "../components/TabsSection.astro";
+import CommentsSection from "../components/CommentsSection.astro";
+import ConnectSections from "../components/ConnectSections.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="home-page">
+	<h1>home-page</h1>
+    <HeroSection/>
+    <SectionView heading=" Unlock the Power of" description="FutureTech Features" link="Read FutureTech Blogs" path="/news"/>
+    <BlogSection/>
+    <SectionView heading="A Knowledge Treasure Trove" description="Explore FutureTech's In-Depth Blog Posts" link="View All Blogs" path="/podcast"/>
+    <TabsSection/>
+    <SectionView heading="Your Gateway to In-Depth Information" description="Unlock Valuable Knowledge with FutureTech's Resources" link="View All Blogs" path="/blog"/>
+    <BlogSection/>
+    <SectionView heading="What Our Readers Say" description="Real Words from Real Readers" link="View All Testimonials" path="/resources"/>
+    <CommentsSection/>
+    <ConnectSections/>
+
 </Layout>

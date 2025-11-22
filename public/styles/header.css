@@ -1,0 +1,99 @@
+.header{
+    background-color: var(--dark-10);
+    width: 100%;
+    padding-top: var(--space-24);
+    padding-bottom: var(--space-24);
+    border-bottom: 1px solid var(--dark-15);
+    border-top: 1px solid var(--dark-15);
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        .burger{
+            background-color: unset;
+            border: none;
+        }
+        .burger-menu{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            width: 50%;
+            background-color: var(--dark-10);
+            display: none !important;
+            flex-direction: column;
+            border-right: 1px solid var(--dark-15);
+            .menu-table-item{
+                border: 1px solid var(--dark-15);
+                padding-top: var(--space-24);
+                padding-bottom: var(--space-24);
+                padding-left: var(--space-16);
+                color: var(--absolute-white);
+            }
+            &.show{
+                display: flex !important;
+
+
+            }
+        }
+        .burger-md{
+            display: none;
+            @media (width <= 767px) {
+                display: inline-flex;
+
+            }
+        }
+        .contact-button{
+            background-color: var(--yellow-55);
+            color: var(--dark-08);
+            padding: var(--space-14) var(--space-24);
+            border-radius: var(--space-10);
+           &.menu-md{
+               @media (width <= 767px) {
+                   display: none;
+
+               }
+           }
+        }
+        .menu{
+            display: flex;
+            flex-wrap: wrap;
+            gap: var(--space-8);
+            &.menu-md{
+                @media (width <= 767px) {
+                    display: none;
+
+                }
+            }
+            li{
+
+                a{
+                    color: var(--grey-50);
+                    display: inline-flex;
+                    padding: var(--space-14) var(--space-24);
+                    &.active{
+                        background-color: var(--dark-08);
+                        color: var(--absolute-white);
+                        border: 1px solid var(--dark-20);
+                        border-radius: var(--space-10);
+                    }
+                    &:hover{
+                        background-color: var(--dark-08);
+                        color: var(--absolute-white);
+                        border: 1px solid var(--dark-20);
+                        border-radius: var(--space-10);
+                    }
+                    &:focus-visible {
+                        background-color: var(--dark-08);
+                        color: var(--absolute-white);
+                        border: 1px solid var(--dark-20);
+                        border-radius: var(--space-10);
+                    }
+
+                }
+            }
+        }
+    }
+
+}
