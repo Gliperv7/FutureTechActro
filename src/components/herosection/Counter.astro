@@ -1,0 +1,29 @@
+---
+const data=[
+    {
+        name: "Resources available",
+        value: "300",
+
+    },
+    {
+        name: "total Downloads",
+        value: "12",
+    },
+    {
+        name: "Active Users",
+        value: "10k",
+    }
+]
+---
+
+
+{
+    data.map((item,index)=>(
+    <div class="table-section-item-content table-section-item-content-2">
+        <div class="table-section-item-title text-container">
+            <p class="table-section-item-content-title-2">{item.value}<span>+</span></p>
+            <p class="table-section-item-content-title-3">{item.name}</p>
+        </div>
+    </div>
+        ))
+    }
