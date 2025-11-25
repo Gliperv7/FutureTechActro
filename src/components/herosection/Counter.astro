@@ -1,19 +1,32 @@
 ---
-const data=[
+
+const data : {name:string,value: number}[] = [
     {
         name: "Resources available",
-        value: "300",
-
+        value: 300,
     },
     {
-        name: "total Downloads",
-        value: "12",
+        name: "Total Downloads",
+        value: 12000,
     },
     {
         name: "Active Users",
-        value: "10k",
+        value: 10000,
     }
-]
+];
+function formatRusK(num: number) {
+    const fmt = new Intl.NumberFormat("en-EN", { maximumFractionDigits: 0 });
+
+    if (num >= 1_000_000) {
+        return fmt.format(Math.round(num / 1_000_000)) + "kk";
+    }
+
+    if (num >= 1_000) {
+        return fmt.format(Math.round(num / 1_000)) + "k";
+    }
+
+    return fmt.format(num);
+}
 ---
 
 
@@ -21,7 +34,7 @@ const data=[
     data.map((item,index)=>(
     <div class="table-section-item-content table-section-item-content-2">
         <div class="table-section-item-title text-container">
-            <p class="table-section-item-content-title-2">{item.value}<span>+</span></p>
+            <p class="table-section-item-content-title-2">{formatRusK(item.value)}<span>+</span></p>
             <p class="table-section-item-content-title-3">{item.name}</p>
         </div>
     </div>
