@@ -1825,3 +1825,32 @@ details:not([open])::details-content {
         }
     }
 }
+.banner-container{
+    display: flex;
+    width: 100%;
+    height: 69vh;
+    background-image:url("./images/blog-details/Image.png");
+    background-size: auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: flex-end;
+    @media (width <= 764px) {
+        height: 50vh;
+    }
+    .banner-container-text{
+        --padding-bottom: var(--space-40);
+        --font-size: var(--space-64);
+        font-weight: 600;
+        font-size: var(--font-size);
+        text-align: center;
+        color: var(--absolute-white);
+        padding-bottom: var(--padding-bottom);
+        @media (width <= 1440px) {
+            --font-size: var(--space-44);
+        }
+        @media (width <= 764px) {
+            --font-size: var(--space-28);
+        }
+    }
+}

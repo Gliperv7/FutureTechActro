@@ -2,10 +2,15 @@
 import Layout from '../layouts/Layout.astro';
 import SectionView from "../components/SectionView.astro";
 import BlogSection from "../components/BlogSection.astro";
-import TabsSection from "../components/tabssection/TabsSection";
+import NewsSection from "../components/newssection/NewsSection.astro";
+import NewsBottom from "../components/newssection/NewsBottom.astro";
+import ConnectSections from "../components/ConnectSections.astro";
+import BlogDetails from "../components/BlogDetails.astro";
 
 ---
 
 <Layout title="blog-page">
-    blog-page
+    <BlogDetails/>
+    <NewsBottom/>
+    <ConnectSections/>
 </Layout>
