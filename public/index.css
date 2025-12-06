@@ -1835,7 +1835,7 @@ details:not([open])::details-content {
     background-repeat: no-repeat;
     justify-content: center;
     align-items: flex-end;
-    @media (width <= 764px) {
+    @media (width <= 765px) {
         height: 50vh;
     }
     .banner-container-text{
