@@ -26,3 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+document.addEventListener('DOMContentLoaded', function() {
+    const button = document.getElementById('readMoreButton');
+    const content = document.getElementById('articleContainer');
+    const originalSvg = button.querySelector('.blog-comment-left-bottom-btn-svg').outerHTML;
+    if (button && content) {
+        button.addEventListener('click', function() {
+            content.classList.toggle('expanded');
+            button.classList.toggle('expanded');
+
+            const isExpanded = content.classList.contains('expanded');
+
+            if (isExpanded) {
+                button.innerHTML = `Back ${originalSvg}`;
+            } else {
+                button.innerHTML = `Read Full Blog ${originalSvg} `;
+            }
+        });
+    }
+});
