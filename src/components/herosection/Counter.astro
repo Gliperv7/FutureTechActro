@@ -1,19 +1,22 @@
 ---
 
-const data : {name:string,value: number}[] = [
-    {
-        name: "Resources available",
-        value: 300,
-    },
-    {
-        name: "Total Downloads",
-        value: 12000,
-    },
-    {
-        name: "Active Users",
-        value: 10000,
-    }
-];
+// const data : {name:string,value: number}[] = [
+//     {
+//         name: "Resources available",
+//         value: 300,
+//     },
+//     {
+//         name: "Total Downloads",
+//         value: 12000,
+//     },
+//     {
+//         name: "Active Users",
+//         value: 10000,
+//     }
+// ];
+const res = await fetch(`${import.meta.env.PUBLIC_STRAPI_URL}/api/counters`);
+const { data } = await res.json();
+
 function formatRusK(num: number) {
     const fmt = new Intl.NumberFormat("en-EN", { maximumFractionDigits: 0 });
 
@@ -31,7 +34,7 @@ function formatRusK(num: number) {
 
 
 {
-    data.map((item,index)=>(
+    data?.map((item:any)=>(
     <div class="table-section-item-content table-section-item-content-2">
         <div class="table-section-item-title text-container">
             <p class="table-section-item-content-title-2">{formatRusK(item.value)}<span>+</span></p>

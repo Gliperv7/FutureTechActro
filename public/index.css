@@ -1504,7 +1504,7 @@ details:not([open])::details-content {
     --font-size: var(--space-18);
     font-size: var(--font-size);
     color: var(--grey-60);
-    max-width: 90%;
+    max-width: 80%;
     @media (width <= 1440px) {
         --font-size: var(--space-16);
     }
@@ -2086,4 +2086,62 @@ details:not([open])::details-content {
     @media (width <= 1440px) {
         --font-size: var(--space-16);
     }
+}
+.review-stars-modification{
+    position: unset;
+}
+.content-section-2-item-content-header{
+    .content-section-2-item-content-header-link-text-group{
+        --gap: var(--space-40);
+        --padding: var(--space-30);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: var(--gap);
+        border: var(--space-1) solid var(--dark-15);
+        border-radius: var(--space-13);
+        padding: var(--padding);
+        background: var(--dark-10);
+        .content-section-2-item-content-header-text{
+            --font-size: var(--space-18);
+            font-size: var(--font-size);
+            color: var(--grey-60);
+        }
+        .content-section-2-item-content-header-text-heavy{
+            --font-size: var(--space-18);
+            font-size: var(--font-size);
+            font-weight: 500;
+            color: var(--absolute-white);
+        }
+
+    }
+    .content-section-2-item-content-header-group-star{
+        --gap: var(--space-60);
+        --padding-bottom: var(--space-30);
+        display: flex;
+        align-items: center;
+        column-gap: var(--gap);
+        padding-bottom: var(--padding-bottom);
+
+        .content-section-2-item-content-header-text-heavy{
+            --font-size: var(--space-40);
+            font-weight: 600;
+            font-size:var(--font-size);
+            color: var(--absolute-white);
+        }
+    }
+    .content-section-2-item-content-header-logo-left{
+        --padding-bottom: var(--space-50);
+        padding-bottom: var(--padding-bottom); 
+    }
+}
+.content-section-2-item-content-image-modification{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url("/public/images/blog-details/Container.png");
+   
+    height: 50vh;
+    width: 100%;
+    background-repeat: no-repeat;
+
 }
