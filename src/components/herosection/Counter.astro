@@ -1,19 +1,5 @@
 ---
 
-// const data : {name:string,value: number}[] = [
-//     {
-//         name: "Resources available",
-//         value: 300,
-//     },
-//     {
-//         name: "Total Downloads",
-//         value: 12000,
-//     },
-//     {
-//         name: "Active Users",
-//         value: 10000,
-//     }
-// ];
 const res = await fetch(`${import.meta.env.PUBLIC_STRAPI_URL}/api/counters`);
 const { data } = await res.json();
 

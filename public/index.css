@@ -2291,24 +2291,7 @@ details:not([open])::details-content {
     }
 }
 
-.container-grid-video-card-top-1{
-    background-image: url("/public/images/podcasts/Sub Container.png") !important;
-}
-.container-grid-video-card-top-2{
-    background-image: url("/public/images/podcasts/Sub Container2.png") !important;
-}
-.container-grid-video-card-top-3{
-    background-image: url("/public/images/podcasts/Sub Container3.png") !important;
-}
-.container-grid-video-card-top-4{
-    background-image: url("/public/images/podcasts/Sub Container4.png") !important;
-}
-.container-grid-video-card-top-5{
-    background-image: url("/public/images/podcasts/Sub Container5.png") !important;
-}
-.container-grid-video-card-top-6{
-    background-image: url("/public/images/podcasts/Sub Container6.png") !important;
-}
+
 .content-section-2-item-content-block {
     & .content-section-2-item-content-image {
         background-size: cover;
