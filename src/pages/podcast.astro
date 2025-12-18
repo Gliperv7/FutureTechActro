@@ -1,16 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeroSectionSmall from "../components/HeroSectionSmall.astro";
 import ConnectSections from "../components/ConnectSections.astro";
 import SectionView from "../components/SectionView.astro";
 import BlogSectionV2 from "../components/BlogSection/BlogSectionV2.astro";
+import HeroSectionSmallV2 from "../components/HeroSectionSmallV2.astro";
+import VideoSectionV2 from "../components/VideoSectionV2.astro";
 
 ---
 
 <Layout title="podcast-page">
-    <HeroSectionSmall MainText1="Unlock the World of Artificial Intelligence " MainText2="through Podcasts" MainText3="Dive deep into the AI universe with our collection of insightful podcasts. Explore the latest trends, breakthroughs, and discussions on artificial intelligence. Whether you're an enthusiast or a professional, our AI podcasts offer a gateway to knowledge and innovation."  />
+    <HeroSectionSmallV2 MainText1="Unlock the World of Artificial Intelligence " MainText2="through Podcasts" MainText3="Dive deep into the AI universe with our collection of insightful podcasts. Explore the latest trends, breakthroughs, and discussions on artificial intelligence. Whether you're an enthusiast or a professional, our AI podcasts offer a gateway to knowledge and innovation."/>
     <BlogSectionV2/>
     <SectionView heading="Stay Informed with Fresh Content " description="Latest Podcast Episodes" link="View All Podcast" path="/podcast"/>
+    <VideoSectionV2/>
     <ConnectSections/>
-
 </Layout>
