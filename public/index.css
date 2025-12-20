@@ -1478,6 +1478,8 @@ details:not([open])::details-content {
         grid-template-columns: 20% 80%;
         align-items: center;
         gap: var(--gap);
+        justify-items: center;
+        justify-content: start;
         @media (width <= 1440px) {
             --gap: var(--space-60);
         }
@@ -2307,4 +2309,34 @@ details:not([open])::details-content {
 .container-grid-video-card-top-button{
     --padding: var(--space-20);
     padding: var(--padding);
+}
+
+.container-section-1__modification{
+    border-bottom: unset ;
+    .table-section-1__modification{
+        grid-template-columns: auto;
+        .table-section-item__modification{
+            grid-template-columns: auto auto auto auto;
+            @media (width <= 596px) {
+                grid-template-columns: auto auto auto auto  ;
+            }
+            .table-section-item-content__modification{
+                border: unset;
+                border-right: var(--space-1) solid var(--dark-15);
+                border-bottom: var(--space-1) solid var(--dark-15);
+                @media (width <= 632px) {
+                    --padding-vertical: var(--space-10);
+                    padding-left: var(--padding-vertical);
+                    padding-right: var(--padding-vertical);
+                }
+            }
+            .table-section-item-content__modification:last-child{
+
+                border-right: unset;
+            }
+        }
+    }
+}
+.table-section-item-content-title-3__modification{
+
 }

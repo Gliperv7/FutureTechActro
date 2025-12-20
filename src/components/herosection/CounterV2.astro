@@ -1,0 +1,32 @@
+---
+
+const res = await fetch(`${import.meta.env.PUBLIC_STRAPI_URL}/api/counter-v2s`);
+const { data } = await res.json();
+
+function formatRusK(num: number) {
+    const fmt = new Intl.NumberFormat("en-EN", { maximumFractionDigits: 0 });
+
+    if (num >= 1_000_000) {
+    return fmt.format(Math.round(num / 1_000_000)) + "kk";
+    }
+
+    if (num >= 1_000) {
+    return fmt.format(Math.round(num / 1_000)) + "k";
+    }
+
+    return fmt.format(num);
+    }
+---
+
+
+{
+    data?.map((item:any)=>(
+    <div class="table-section-item-content table-section-item-content__modification table-section-item-content-2">
+        <div class="table-section-item-title text-container">
+            <p class="table-section-item-content-title-2">{formatRusK(item.value)}<span>+</span></p>
+            <p class="table-section-item-content-title-3 table-section-item-content-title-3__modification">{item.name}</p>
+        </div>
+    </div>
+        ))
+    }
+
