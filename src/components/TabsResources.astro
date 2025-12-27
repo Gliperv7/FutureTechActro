@@ -1,6 +1,7 @@
 ---
 const heading = Astro.props.heading;
 const description = Astro.props.description;
+
 ---
 
 <div class="container-section-1 ">
@@ -29,7 +30,7 @@ const description = Astro.props.description;
     </div>
     <div class="tabs-content">
 
-        <div class="tab-content active" data-tab-content="white">
+        <div class="tab-content-view active" data-tab-content="white">
 
             <div class="content-section-2-items">
                 <div class="content-section-2-item-container container content-section-2-item-container-modification">
@@ -37,7 +38,7 @@ const description = Astro.props.description;
 
                         <div class="content-section-2-item-content-header-logo-left-container">
                             <img class="content-section-2-item-content-header-logo-left"
-                                 src="/public/images/resources/Icon.png" alt="logo">
+                                 src="/images/resources/Icon.png" alt="logo">
                         </div>
                         <div class="content-section-2-item-content-header-group-star">
                             <p class="content-section-2-item-content-header-text-heavy">
@@ -110,7 +111,7 @@ const description = Astro.props.description;
 
                         <div class="content-section-2-item-content-header-logo-left-container">
                             <img class="content-section-2-item-content-header-logo-left"
-                                 src="/public/images/resources/Group 236.png" alt="logo">
+                                 src="/images/resources/Group%20236.png" alt="logo">
                         </div>
                         <div class="content-section-2-item-content-header-group-star">
                             <p class="content-section-2-item-content-header-text-heavy">
@@ -239,12 +240,12 @@ const description = Astro.props.description;
 
         </div>
 
-        <div class="tab-content" data-tab-content="ebooks">
+        <div class="tab-content-view" data-tab-content="ebooks">
 
             <p>Ebooks content here</p>
         </div>
 
-        <div class="tab-content" data-tab-content="reports">
+        <div class="tab-content-view" data-tab-content="reports">
 
             <p>Reports content here</p>
         </div>
@@ -253,4 +254,24 @@ const description = Astro.props.description;
 
 
 </div>
+<script>
+    const tabs = document.querySelectorAll('.section-1-content-container-link');
+    const contents = document.querySelectorAll('.tab-content-view');
 
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const target = tab.dataset.tab;
+
+
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+
+            contents.forEach(c => {
+                c.classList.toggle(
+                    'active',
+                    c.dataset.tabContent === target
+                );
+            });
+        });
+    });
+</script>

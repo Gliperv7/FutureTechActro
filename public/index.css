@@ -2375,11 +2375,11 @@ details:not([open])::details-content {
         grid-template-columns: 95%;
     }
 }
-.tab-content {
+.tab-content-view {
     display: none;
 }
 
-.tab-content.active {
+.tab-content-view.active {
     display: block;
 }
 
