@@ -1,16 +1,20 @@
 ---
+import * as http2 from "node:http2";
 const res = await fetch(
     `${import.meta.env.PUBLIC_STRAPI_URL}/api/podcast-infos?populate=image`
 );
 const { data } = await res.json();
+
+console.log(typeof !!import.meta.env.PUBLIC_STRAPI_DEV);
 ---
 <div class="container container-grid-video container-grid-video-modification">
     <h1>Я тут</h1>
     {
         data.map(({ image }) => (
+                <h2>{import.meta.env.PUBLIC_STRAPI_DEV}</h2>
                 <img
                         src={
-                            import.meta.env.PUBLIC_STRAPI_DEV
+                            !!import.meta.env.PUBLIC_STRAPI_DEV
                                 ? import.meta.env.PUBLIC_STRAPI_URL + image.url
                                 : image.url
                         }
