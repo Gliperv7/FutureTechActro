@@ -10,6 +10,7 @@ const { data } = await res.json();
         let imageUrl = image?.url;
         if (import.meta.env.PUBLIC_STRAPI_DEV) {
             imageUrl = import.meta.env.PUBLIC_STRAPI_URL + imageUrl;
+            imageUrl = imageUrl.replace('/public', '');
         }
 
 
