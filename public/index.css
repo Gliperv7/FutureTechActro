@@ -2164,7 +2164,7 @@ details:not([open])::details-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-image: url("/public/images/blog-details/Container.png");
+    background: black;
    
     height: 50vh;
     width: 100%;
