@@ -10,17 +10,18 @@ console.log(typeof !!import.meta.env.PUBLIC_STRAPI_DEV);
 <div class="container container-grid-video container-grid-video-modification">
     <h1>Я тут</h1>
     {
-        data.map(({ image }) => (
-                <h2>{import.meta.env.PUBLIC_STRAPI_DEV}</h2>
-                <img
-                        src={
-                            !!import.meta.env.PUBLIC_STRAPI_DEV
-                                ? import.meta.env.PUBLIC_STRAPI_URL + image.url
-                                : image.url
-                        }
-                        alt="Image"
-                />
-        ))
+        data.map(({ image }) => {
+            const imageUrl = image?.url?.startsWith('http')
+                ? image.url
+                : import.meta.env.PUBLIC_STRAPI_URL + image.url
+
+            return (
+                    <img
+                            src={imageUrl}
+                            alt="Image"
+                    />
+            )
+        })
     }
     <!--{data?.map((item:any) => {-->
     <!--    let { title, text, image } = item;-->
