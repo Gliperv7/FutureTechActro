@@ -6,15 +6,19 @@ const { data } = await res.json();
 ---
 <div class="container container-grid-video container-grid-video-modification">
     {data?.map((item:any) => {
-        const { title, text, image } = item;
-        const imageUrl = image?.url;
+        let { title, text, image } = item;
+        let imageUrl = image?.url;
+        if (import.meta.env.PUBLIC_STRAPI_DEV) {
+            imageUrl = import.meta.env.PUBLIC_STRAPI_URL + imageUrl;
+        }
+
 
         return (
 
                 <div class="container-grid-video-card-modification container-grid-video-card ">
                     <div
                             class="container-grid-video-card-top"
-                            style={`background-image: url(${import.meta.env.PUBLIC_STRAPI_URL}${imageUrl})`}
+                            style={`background-image: url(${imageUrl})`}
                     >
                         <button class="container-grid-video-card-top-button" type="button">
                             <svg class="container-grid-video-card-top-button-svg" width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">

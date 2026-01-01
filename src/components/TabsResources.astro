@@ -255,8 +255,8 @@ const description = Astro.props.description;
 
 </div>
 <script>
-    const tabs = document.querySelectorAll('.section-1-content-container-link');
-    const contents = document.querySelectorAll('.tab-content-view');
+    const tabs = document.querySelectorAll<HTMLElement>('.section-1-content-container-link');
+    const contents = document.querySelectorAll<HTMLElement>('.tab-content-view');
 
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
