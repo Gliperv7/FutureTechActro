@@ -1,5 +1,4 @@
 ---
-import * as http2 from "node:http2";
 const res = await fetch(
     `${import.meta.env.PUBLIC_STRAPI_URL}/api/podcast-infos?populate=image`
 );
@@ -48,7 +47,7 @@ const { data } = await res.json();
                         <p class="container-grid-video-card-bottom-text-normal">{text}</p>
 
                         <div class="container-grid-video-card-bottom-link">
-                            <a href="#" class="section-1-content-link">
+                            <a href="/podcast" class="section-1-content-link">
                                 Listen Podcast
                                 <svg
                                         width="16.5"

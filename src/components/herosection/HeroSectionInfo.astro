@@ -1,0 +1,38 @@
+---
+const res = await fetch(
+    `${import.meta.env.PUBLIC_STRAPI_URL}/api/info-cards?populate=*`
+);
+const { data } = await res.json();
+console.log(data)
+---
+<ul class="table-section-2">
+
+    {data.map((item:any) => {
+        let imageUrl = item.cover?.url
+        if (imageUrl && !imageUrl.startsWith('http')) {
+            imageUrl = import.meta.env.PUBLIC_STRAPI_URL + imageUrl
+        }
+
+        return (
+                <li class="table-section-2-item">
+                    <div class="table-section-2-content">
+                        <div class="table-section-2-items-text">
+                            <img src={imageUrl} width="50" height="50" alt="icon" class="table-section-2-items-img">
+                            <p class="table-section-2-items-text-element table-section-2-items-text-element-1">
+                                {item.title} Updates
+                            </p>
+                            <p class="table-section-2-items-text-element table-section-2-items-text-element-2">
+                                {item.subtitle} Current
+                            </p>
+                            <p class="table-section-2-items-text-element table-section-2-items-text-element-3">
+                                {item.description}
+                            </p>
+                            <a href={item.link} class="table-section-2-items-img table-section-2-items-text-element-4">
+                                <img src="/images/about/Button.png" alt="button" height="52" width="52">
+                            </a>
+                        </div>
+                    </div>
+                </li>
+        )
+    })}
+</ul>
