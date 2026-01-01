@@ -2164,7 +2164,7 @@ details:not([open])::details-content {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: black;
+    background-image: url("/images/blog-details/Container.png");
    
     height: 50vh;
     width: 100%;
@@ -2265,7 +2265,7 @@ details:not([open])::details-content {
     }
 }
 .content-section-2-item-content-image-v2{
-    background-image: url("/public/images/blog-details/Container2.png");
+    background-image: url("/images/blog-details/Container2.png");
 }
 .container-grid-video-modification{
     grid-template-columns: repeat(3, 33.333%);
