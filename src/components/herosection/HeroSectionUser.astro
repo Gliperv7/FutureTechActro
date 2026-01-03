@@ -1,14 +1,14 @@
 ---
 const res = await fetch(`${import.meta.env.PUBLIC_STRAPI_URL}/api/users-covers?populate=*`)
-const { data } = await res.json()
+const json = await res.json()
 
 const base = import.meta.env.PUBLIC_STRAPI_URL
-const item = data[0]
+const item = json?.data?.[0]
 
-const imageUrl1 = base + item.user1.url
-const imageUrl2 = base + item.user2.url
-const imageUrl3 = base + item.user3.url
-const imageUrl4 = base + item.user4[0].url
+const imageUrl1 = item?.user1?.url ? base + item.user1.url : ''
+const imageUrl2 = item?.user2?.url ? base + item.user2.url : ''
+const imageUrl3 = item?.user3?.url ? base + item.user3.url : ''
+const imageUrl4 = item?.user4?.[0]?.url ? base + item.user4[0].url : ''
 ---
 
 <div class="table-section-item-img-back">
