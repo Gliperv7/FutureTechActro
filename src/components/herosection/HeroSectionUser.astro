@@ -5,10 +5,16 @@ const json = await res.json()
 const base = import.meta.env.PUBLIC_STRAPI_URL
 const item = json?.data?.[0]
 
-const imageUrl1 = item?.user1?.url ? base + item.user1.url : ''
-const imageUrl2 = item?.user2?.url ? base + item.user2.url : ''
-const imageUrl3 = item?.user3?.url ? base + item.user3.url : ''
-const imageUrl4 = item?.user4?.[0]?.url ? base + item.user4[0].url : ''
+const getUrl = (file: any) => {
+    let url = file?.url
+    if (url && !url.startsWith('http')) url = base + url
+    return url || ''
+}
+
+const imageUrl1 = getUrl(item?.user1)
+const imageUrl2 = getUrl(item?.user2)
+const imageUrl3 = getUrl(item?.user3)
+const imageUrl4 = getUrl(item?.user4?.[0])
 ---
 
 <div class="table-section-item-img-back">
