@@ -1,22 +1,22 @@
 ---
 const { PUBLIC_STRAPI_URL, PUBLIC_STRAPI_DEV } = import.meta.env
 
-const withBase = (url:string) =>
-    url.startsWith('http')
-        ? url
-        : PUBLIC_STRAPI_DEV === 'true'
-            ? PUBLIC_STRAPI_URL + url
-            : PUBLIC_STRAPI_URL + url.replace('/public','')
+const withBase = (url?: string) =>
+    !url ? '' :
+        url.startsWith('http') ? url :
+            PUBLIC_STRAPI_DEV === 'true'
+                ? PUBLIC_STRAPI_URL + url
+                : PUBLIC_STRAPI_URL + url.replace('/public','')
 
 const res = await fetch(`${PUBLIC_STRAPI_URL}/api/users-covers?populate=*`)
 const { data } = await res.json()
 
-const item = data[0]
+const item = data?.[0]
 
-const imageUrl1 = withBase(item.user1.url)
-const imageUrl2 = withBase(item.user2.url)
-const imageUrl3 = withBase(item.user3.url)
-const imageUrl4 = withBase(item.user4[0].url)
+const imageUrl1 = withBase(item?.user1?.url)
+const imageUrl2 = withBase(item?.user2?.url)
+const imageUrl3 = withBase(item?.user3?.url)
+const imageUrl4 = withBase(item?.user4?.[0]?.url)
 ---
 
 <div class="table-section-item-img-back">
