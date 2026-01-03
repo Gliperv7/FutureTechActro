@@ -3,7 +3,6 @@ const res = await fetch(
     `${import.meta.env.PUBLIC_STRAPI_URL}/api/info-cards?populate=*`
 );
 const { data } = await res.json();
-console.log(data)
 ---
 <ul class="table-section-2">
 
