@@ -1,16 +1,15 @@
 
 ---
 const res = await fetch(`${import.meta.env.PUBLIC_STRAPI_URL}/api/users-covers?populate=*`)
-const { data } = await res.json()
-
-const base = import.meta.env.PUBLIC_STRAPI_URL
+const json = await res.json()
+const data = Array.isArray(json?.data) ? json.data : []
 
 const withBase = (file:any) => {
-    let url = file?.url
-    if (url && !url.startsWith('http')) url = base + url
+    const f = Array.isArray(file) ? file[0] : file
+    let url = f?.url
+    if (url && !url.startsWith('http')) url = import.meta.env.PUBLIC_STRAPI_URL + url
     return url
 }
-console.log( data )
 ---
 <div class="table-section-item-img-back">
     {data.map((item:any) => {
