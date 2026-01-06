@@ -1,27 +1,31 @@
+
 ---
-const { PUBLIC_STRAPI_URL, PUBLIC_STRAPI_DEV } = import.meta.env
-
-const withBase = (url?: string) =>
-    !url ? '' :
-        url.startsWith('http') ? url :
-            PUBLIC_STRAPI_DEV === 'true'
-                ? PUBLIC_STRAPI_URL + url
-                : PUBLIC_STRAPI_URL + url.replace('/public','')
-
-const res = await fetch(`${PUBLIC_STRAPI_URL}/api/users-covers?populate=*`)
+const res = await fetch(`${import.meta.env.PUBLIC_STRAPI_URL}/api/users-covers?populate=*`)
 const { data } = await res.json()
 
-const item = data?.[0]
+const base = import.meta.env.PUBLIC_STRAPI_URL
 
-const imageUrl1 = withBase(item?.user1?.url)
-const imageUrl2 = withBase(item?.user2?.url)
-const imageUrl3 = withBase(item?.user3?.url)
-const imageUrl4 = withBase(item?.user4?.[0]?.url)
+const withBase = (file:any) => {
+    let url = file?.url
+    if (url && !url.startsWith('http')) url = base + url
+    return url
+}
+console.log( data )
 ---
-
 <div class="table-section-item-img-back">
-    <img src={imageUrl1} height="60" width="60" alt="team" class="table-section-item-images-1" />
-    <img src={imageUrl2} height="60" width="60" alt="team" class="table-section-item-images-2" />
-    <img src={imageUrl3} height="60" width="60" alt="team" class="table-section-item-images-3" />
-    <img src={imageUrl4} height="60" width="60" alt="team" class="table-section-item-images-4" />
+    {data.map((item:any) => {
+        const imageUrl1 = withBase(item.user1)
+        const imageUrl2 = withBase(item.user2)
+        const imageUrl3 = withBase(item.user3)
+        const imageUrl4 = withBase(item.user4)
+
+        return (
+                <>
+                    <img src={imageUrl1} height="60" width="60" alt="team" class="table-section-item-images-1" />
+                    <img src={imageUrl2} height="60" width="60" alt="team" class="table-section-item-images-2" />
+                    <img src={imageUrl3} height="60" width="60" alt="team" class="table-section-item-images-3" />
+                    <img src={imageUrl4} height="60" width="60" alt="team" class="table-section-item-images-4" />
+                </>
+        )
+    })}
 </div>
