@@ -4,11 +4,13 @@ const res = await fetch(`${import.meta.env.PUBLIC_STRAPI_URL}/api/users-covers?p
 const json = await res.json()
 const data = Array.isArray(json?.data) ? json.data : []
 
+const base = import.meta.env.PUBLIC_STRAPI_URL || ''
+
 const withBase = (file:any) => {
     const f = Array.isArray(file) ? file[0] : file
     let url = f?.url
-    if (url && !url.startsWith('http')) url = import.meta.env.PUBLIC_STRAPI_URL + url
-    return url
+    if (url && !url.startsWith('http')) url = base + url
+    return url || ''
 }
 ---
 <div class="table-section-item-img-back">
