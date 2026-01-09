@@ -1168,30 +1168,6 @@ details:not([open])::details-content {
 
 }
 
-.review-stars {
-    --gap: var(--space-10);
-    --padding-horizontal: var(--space-10);
-    --padding-vertical: var(--space-16);
-
-    display: inline-flex;
-    gap: var(--gap);
-    justify-content: center;
-        
-        border: var(--space-1) solid var(--dark-15);
-        border-radius: var(--space-50);
-        padding: var(--padding-horizontal) var(--padding-vertical);
-        background: var(--dark-08);
-        position:relative;
-        bottom:var(--space-55);
-}
-
-
-
-.review-star.active,
-.review-star:hover {
-    color: var(--yellow-55);
-}
-
 .review-text {
     --font-size: var(--space-18);
     font-size: var(--font-size);
@@ -1209,8 +1185,7 @@ details:not([open])::details-content {
         grid-template-columns: 100%;
     }
     .container-comments{
-        border-right: var(--space-1) solid var(--dark-15);
-        border-bottom: var(--space-1) solid var(--dark-15);
+
         @media (width <= 920px) {
             border-right: unset;
         }
@@ -2451,8 +2426,55 @@ details:not([open])::details-content {
 .section-1-content-link__modification-color{
     background: var(--dark-08);
 }
-.downloads-section-container__modification{
-
+.simple-rating {
+    display: inline-block;
+    border: var(--space-1) solid var(--dark-15);
+    border-radius: var(--space-30);
+    padding: var(--space-10) var(--space-16);
+    position: relative;
+    margin-bottom: var(--space-40);
 }
+
+/* УБИРАЕМ content: "★★★★★", чтобы не было дублирования */
+.simple-rating::before {
+    display: none;
+}
+
+.simple-rating__items {
+    display: flex;
+    flex-direction: row-reverse; /* Для правильной работы селектора ~ */
+}
+
+.simple-rating__item {
+    /* Скрываем инпуты полностью */
+    position: absolute;
+    width: 0;
+    height: 0;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.simple-rating__label {
+    font-size: var(--space-30);
+    cursor: pointer;
+    color: var(--grey-60); /* Цвет пустой звезды */
+    transition: color 0.2s ease;
+    padding: 0 2px; /* Небольшой отступ между звездами */
+}
+
+.simple-rating__label::before {
+    content: "★";
+}
+.simple-rating__item:checked,
+.simple-rating__item:checked ~ .simple-rating__label{
+    color: var(--yellow-70);
+}
+.simple-rating__label:hover ,
+.simple-rating__label:hover ~ .simple-rating__label,
+.simple-rating__label:checked ~ .simple-rating__label:hover{
+    color:var(--yellow-90);
+}
+
+
 
 

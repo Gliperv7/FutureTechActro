@@ -1,0 +1,41 @@
+---
+import StarRaighting from "./StarRaighting.astro";
+const res = await fetch(
+    `${import.meta.env.PUBLIC_STRAPI_URL}/api/comment-counters?populate=*`
+);
+const { data } = await res.json();
+---
+
+<div class="container-section-comments container">
+    {data.map((item: any) => {
+        let imageUrl = item.cover?.url;
+        if (imageUrl && !imageUrl.startsWith('http')) {
+            imageUrl = import.meta.env.PUBLIC_STRAPI_URL + imageUrl;
+        }
+
+        return (
+                <div class="container-comments" key={item.id}>
+                    <div class="content-comments-elements">
+                        <div class="user-card">
+                            <img class="user-card__avatar" src={imageUrl} alt="cover" />
+                            <div class="user-card__info">
+                                <p class="user-card__name">{item.title}</p>
+                                <p class="user-card__role">{item.subtitle}</p>
+                            </div>
+                        </div>
+                        <div class="review-card">
+
+                            <StarRaighting id={item.id} />
+                            <p class="review-text">
+                                {item.text}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        )
+    })}
+</div>
+
+
+
+
