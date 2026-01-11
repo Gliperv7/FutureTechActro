@@ -1,28 +1,33 @@
 ---
 
-const { id } = Astro.props;
-
+const { rating, id } = Astro.props;
+const currentRating = Number(rating);
+const stars = [5, 4, 3, 2, 1];
 ---
 
-<div class="simple-rating">
+<div class="simple-rating" style="pointer-events: none;">
     <div class="simple-rating__items">
-        <input id={`rating-5-${id}`} class="simple-rating__item" name={`rating-${id}`} type="radio" value="5">
-        <label for={`rating-5-${id}`} class="simple-rating__label"></label>
-
-        <input id={`rating-4-${id}`} class="simple-rating__item" name={`rating-${id}`} type="radio" value="4">
-        <label for={`rating-4-${id}`} class="simple-rating__label"></label>
-
-        <input id={`rating-3-${id}`} class="simple-rating__item" name={`rating-${id}`} type="radio" value="3">
-        <label for={`rating-3-${id}`} class="simple-rating__label"></label>
-
-        <input id={`rating-2-${id}`} class="simple-rating__item" name={`rating-${id}`} type="radio" value="2">
-        <label for={`rating-2-${id}`} class="simple-rating__label"></label>
-
-        <input id={`rating-1-${id}`} class="simple-rating__item" name={`rating-${id}`} type="radio" value="1">
-        <label for={`rating-1-${id}`} class="simple-rating__label"></label>
+        {stars.map((star) => (
+                <>
+                    <input
+                            id={`rating-${star}-${id}`}
+                            class="simple-rating__item"
+                            name={`rating-${id}`}
+                            type="radio"
+                            value={star}
+                            checked={currentRating === star}
+                            disabled
+                    />
+                    <label for={`rating-${star}-${id}`} class="simple-rating__label"></label>
+                </>
+        ))}
     </div>
 </div>
 
+<style>
 
-
-
+    .simple-rating {
+        pointer-events: none;
+        user-select: none;
+    }
+</style>

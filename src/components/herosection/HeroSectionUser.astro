@@ -1,32 +1,38 @@
-
 ---
-const res = await fetch(`${import.meta.env.PUBLIC_STRAPI_URL}/api/users-covers?populate=*`)
-const json = await res.json()
-const data = Array.isArray(json?.data) ? json.data : []
+const base = import.meta.env.PUBLIC_STRAPI_URL || '';
 
-const base = import.meta.env.PUBLIC_STRAPI_URL || ''
 
-const withBase = (file:any) => {
-    const f = Array.isArray(file) ? file[0] : file
-    let url = f?.url
-    if (url && !url.startsWith('http')) url = base + url
-    return url || ''
-}
+const res = await fetch(`${base}/api/comments?populate[users_permissions_user][populate][0]=cover&populate[post][fields][0]=title&populate[post][fields][1]=slug&pagination[limit]=4`);
+
+
+const json = await res.json();
+const data = Array.isArray(json?.data) ? json.data : [];
+
+const withBase = (file: any) => {
+    const f = Array.isArray(file) ? file[0] : file;
+    let url = f?.url;
+    if (url && !url.startsWith('http')) url = base + url;
+    return url || '';
+};
 ---
+
 <div class="table-section-item-img-back">
-    {data.map((item:any) => {
-        const imageUrl1 = withBase(item.user1)
-        const imageUrl2 = withBase(item.user2)
-        const imageUrl3 = withBase(item.user3)
-        const imageUrl4 = withBase(item.user4)
+    {data.map((item: any, index: number) => {
+
+        const userCover = item.users_permissions_user?.cover;
+        const imageUrl = withBase(userCover);
+
+
+        const imageClass = `table-section-item-images-${index + 1}`;
 
         return (
-                <>
-                    <img src={imageUrl1} height="60" width="60" alt="team" class="table-section-item-images-1" />
-                    <img src={imageUrl2} height="60" width="60" alt="team" class="table-section-item-images-2" />
-                    <img src={imageUrl3} height="60" width="60" alt="team" class="table-section-item-images-3" />
-                    <img src={imageUrl4} height="60" width="60" alt="team" class="table-section-item-images-4" />
-                </>
-        )
+                <img
+                        src={imageUrl}
+                        height="60"
+                        width="60"
+                        alt="team"
+                        class={imageClass}
+                />
+        );
     })}
 </div>

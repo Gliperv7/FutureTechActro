@@ -1,14 +1,14 @@
 ---
 import StarRaighting from "./StarRaighting.astro";
 const res = await fetch(
-    `${import.meta.env.PUBLIC_STRAPI_URL}/api/comment-counters?populate=*`
+    `${import.meta.env.PUBLIC_STRAPI_URL}/api/comments?populate[users_permissions_user][populate][0]=cover&populate[post][fields][0]=title&populate[post][fields][1]=slug&pagination[limit]=6`
 );
 const { data } = await res.json();
 ---
 
 <div class="container-section-comments container">
     {data.map((item: any) => {
-        let imageUrl = item.cover?.url;
+        let imageUrl = item.users_permissions_user.cover?.url;
         if (imageUrl && !imageUrl.startsWith('http')) {
             imageUrl = import.meta.env.PUBLIC_STRAPI_URL + imageUrl;
         }
@@ -19,15 +19,15 @@ const { data } = await res.json();
                         <div class="user-card">
                             <img class="user-card__avatar" src={imageUrl} alt="cover" />
                             <div class="user-card__info">
-                                <p class="user-card__name">{item.title}</p>
-                                <p class="user-card__role">{item.subtitle}</p>
+                                <p class="user-card__name">{item.users_permissions_user.username}</p>
+                                <p class="user-card__role">{item.users_permissions_user.location}</p>
                             </div>
                         </div>
                         <div class="review-card">
 
-                            <StarRaighting id={item.id} />
+                            <StarRaighting id={item.id} rating={item.rating} />
                             <p class="review-text">
-                                {item.text}
+                                {item.title}
                             </p>
                         </div>
                     </div>
