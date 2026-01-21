@@ -2474,7 +2474,10 @@ details:not([open])::details-content {
 .simple-rating__label:checked ~ .simple-rating__label:hover{
     color:var(--yellow-90);
 }
-
+.icon-tabler-layout-grid{
+    width: var(--space-24);
+    height: var(--space-24);
+}
 
 
 
