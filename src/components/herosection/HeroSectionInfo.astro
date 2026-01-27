@@ -7,7 +7,7 @@ const { data } = await res.json();
 <ul class="table-section-2">
 
     {data.map((item:any) => {
-        let imageUrl = item.cover?.url
+        let imageUrl = item.cover?.[0]?.url
         if (imageUrl && !imageUrl.startsWith('http')) {
             imageUrl = import.meta.env.PUBLIC_STRAPI_URL + imageUrl
         }
